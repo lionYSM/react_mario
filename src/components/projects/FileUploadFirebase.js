@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  storage  from 'config/firebase'
+import { storage }   from 'config/fbConfig'
 
 class FileUploadFirebase extends Component {
   state = {
@@ -54,21 +54,22 @@ class FileUploadFirebase extends Component {
     }, 
     ()=> {
       // complete function
-      storage.ref('images').child(image.name).getDownloadURL().then(url => {
-      console.log(url);        
-      this.setState({url});
+      storage.ref('images').child(image.name).getDownloadURL().then(
+        url => {
+          console.log(url);        
+          this.setState({url});
 
-      // 메타데이타 가져오기
-      // Create a reference to the file whose metadata we want to retrieve
-//var forestRef = storage.ref('images').child('mcavoy.PNG');
-var forestRef = storage.ref('images');
-// Get metadata properties
-forestRef.getMetadata().then(function(metadata) {
-  // Metadata now contains the metadata for 'images/forest.jpg'
-  console.log(metadata)
-}).catch(function(error) {
-  // Uh-oh, an error occurred!
-});
+          // 메타데이타 가져오기
+          // Create a reference to the file whose metadata we want to retrieve
+          //var forestRef = storage.ref('images').child('mcavoy.PNG');
+          var forestRef = storage.ref('images');
+          // Get metadata properties
+          forestRef.getMetadata().then(function(metadata) {
+            // Metadata now contains the metadata for 'images/forest.jpg'
+            console.log(metadata)
+          }).catch(function(error) {
+            // Uh-oh, an error occurred!
+          });
 
       })
     });

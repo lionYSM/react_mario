@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Navbar from './components/layout/Navbar'
-import Dashboard from './components/dashboard/Dashboard'
-import ProjectDetails from './components/projects/ProjectDetails'
-import SignIn from './components/autho/SignIn'
-import SignUp from './components/autho/SignUp'
-import CreateProject from './components/projects/CreateProject'
-import FileUploadFirebase from './components/projects/FileUploadFirebase'
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Navbar from "./components/layout/Navbar";
+import Dashboard from "./components/dashboard/Dashboard";
+import ProjectDetails from "./components/projects/ProjectDetails";
+import SignIn from "./components/autho/SignIn";
+import SignUp from "./components/autho/SignUp";
+import CreateProject from "./components/projects/CreateProject";
+import FileUploadFirebase from "./components/projects/FileUploadFirebase";
+import AddAttendance from "./components/projects/AddAttendance";
 
 class App extends Component {
   render() {
@@ -15,12 +16,13 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <Switch>
-            <Route exact path='/'component={Dashboard} />
-            <Route path='/project/:id' component={ProjectDetails} />
-            <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={SignUp} />
-            <Route path='/create' component={CreateProject} />
-            <Route path='/fileup' component={FileUploadFirebase} />
+            <Route exact path="/" component={Dashboard} />
+            <Route path="/project/:id" component={ProjectDetails} />
+            <Route path="/signin" component={SignIn} />
+            <Route path="/signup" component={SignUp} />
+            <Route path="/create" component={CreateProject} />
+            <Route path="/fileup" component={FileUploadFirebase} />
+            <Route path="/addattendance" component={AddAttendance} />
           </Switch>
         </div>
       </BrowserRouter>
